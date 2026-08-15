@@ -96,6 +96,7 @@
     border-radius:4px;
     overflow:hidden;
     touch-action:none; /* clave para que arrastrar no scrollee la página en celular */
+    isolation:isolate; /* encierra los z-index de adentro (el pelo, las prendas) para que no se escapen y compitan con otras pantallas como el finale */
   }
   .stage-tag{
     position:absolute; top:14px; left:14px; font-family:'Space Mono',monospace; font-size:10px;
