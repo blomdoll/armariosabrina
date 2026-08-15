@@ -89,11 +89,17 @@
   .icon-btn.on{background:var(--pink-mid); border-color:var(--pink-deep); color:var(--paper);}
 
   .wardrobe-layout{
-    display:flex; flex-direction:column; max-width:1100px; margin:0 auto; padding:18px 16px 60px; gap:18px;
+    display:flex; flex-direction:column; max-width:1100px; margin:0 auto; padding:18px 16px 60px; gap:18px; align-items:center;
+  }
+  .rack-header{text-align:center; width:100%;}
+
+  /* fila del "probador": perchero-modelo-perchero (en mobile se apila) */
+  .dressup-row{
+    display:flex; flex-direction:column; align-items:center; gap:18px; width:100%;
   }
 
   /* ===== el escenario / lienzo del armario ===== */
-  .stage-col{order:1; flex:1 1 420px;}
+  .stage-col{flex:1 1 420px; width:100%; max-width:420px;}
   .stage{
     position:relative;
     background:var(--paper);
@@ -181,8 +187,14 @@
     font-family:'Space Mono',monospace; font-size:10px; color:var(--ink-soft); letter-spacing:0.05em;
   }
 
-  /* ===== el perchero / rack de prendas para arrastrar ===== */
-  .panel-col{order:2; flex:1 1 380px; display:flex; flex-direction:column; gap:14px;}
+  /* ===== el perchero / rack de prendas para arrastrar (dos columnas a los costados) ===== */
+  .rack-side{width:100%;}
+
+  /* bitácora + objeto especial, como dos recuadros aparte */
+  .info-row{
+    display:flex; flex-direction:column; gap:14px; width:100%; max-width:420px;
+  }
+  .square-card{width:100%;}
 
   .rack-titulo{
     font-family:'Bodoni Moda',serif; font-weight:700; font-size:16px; margin:0 0 2px;
@@ -345,27 +357,37 @@
     /* antes esto tenía un tope de 1100px y dejaba franjas enormes vacías
        a los costados — ahora usa casi todo el ancho de la pantalla */
     .wardrobe-layout{
-      flex-direction:row;
-      align-items:stretch;
+      flex-direction:column;
+      align-items:center;
       flex:1 1 auto;
       min-height:0;
       max-width:none;
       width:100%;
-      padding:16px 32px;
-      gap:32px;
-      overflow:hidden;
+      padding:16px 32px 36px;
+      gap:20px;
+      overflow-y:auto;
+      overflow-x:hidden;
+    }
+    .rack-header{flex:0 0 auto;}
+
+    .dressup-row{
+      flex-direction:row;
+      align-items:flex-start;
+      justify-content:center;
+      gap:26px;
+      width:100%;
+      flex:0 0 auto;
     }
     .stage-col{
       flex:0 0 auto;
+      width:auto; max-width:none;
       display:flex;
       flex-direction:column;
       align-items:center;
-      justify-content:center;
-      height:100%;
     }
     .stage{
       width:auto;
-      height:min(78vh, 780px);
+      height:min(60vh, 640px);
       aspect-ratio:640/800;
       flex:0 0 auto;
     }
@@ -375,29 +397,30 @@
       aspect-ratio:unset;
       object-fit:cover;
     }
-    .stage-footnote{flex:0 0 auto; margin-top:6px;}
+    .stage-footnote{flex:0 0 auto; margin-top:6px; max-width:280px;}
 
-    .panel-col{
-      flex:1 1 auto;
-      min-width:0;
-      height:100%;
-      overflow:hidden;
-    }
-    .rack{
-      flex:0 1 auto;
-      display:grid;
-      grid-template-columns:repeat(auto-fill,minmax(86px,1fr));
-      gap:10px;
-      max-height:280px;
+    .rack-side{
+      width:196px;
+      flex:0 0 196px;
+      grid-template-columns:repeat(2,1fr);
+      max-height:min(60vh, 640px);
+      align-content:start;
       overflow-y:auto;
       overflow-x:hidden;
     }
-    .story-card{
-      flex:1 1 auto;
-      min-height:0;
+
+    .info-row{
+      flex-direction:row;
+      justify-content:center;
+      width:100%;
+      max-width:820px;
+      flex:0 0 auto;
+    }
+    .square-card{
+      max-width:380px;
+      max-height:300px;
       overflow-y:auto;
     }
-    .special-card{flex:0 0 auto;}
   }
 </style>
 </head>
@@ -431,32 +454,37 @@
 
   <div class="wardrobe-layout">
 
-    <!-- escenario: la modelo + las prendas que ella va soltando encima -->
-    <div class="stage-col">
-      <div class="stage" id="stage">
-        <div class="stage-tag">EDICIÓN 016<br><b>ARMARIO</b></div>
-        <img class="modelo-base" id="modeloBase" src="assets/modelo/base.png" alt="Modelo" draggable="false">
-        <!-- capa de pelo, va SIEMPRE encima de todo, alineada pixel a pixel con la modelo -->
-        <img class="pelo-capa" src="assets/modelo/pelo-sticker.png" alt="" draggable="false">
-        <!-- acá van cayendo las prendas que se sueltan (JS las agrega) -->
-      </div>
-      <div class="stage-footnote">Arrastrá una prenda del perchero y soltala sobre ella. Podés moverlas cuantas veces quieras.</div>
+    <div class="rack-header">
+      <div class="rack-titulo">El perchero</div>
+      <div class="rack-sub">Las bloqueadas se abren jugando con las demás.</div>
     </div>
 
-    <!-- panel: perchero + bitácora + objeto especial -->
-    <div class="panel-col">
-      <div>
-        <div class="rack-titulo">El perchero</div>
-        <div class="rack-sub">Las bloqueadas se abren jugando con las demás.</div>
-        <div class="rack" id="rack"></div>
+    <!-- probador: perchero a los dos costados, la modelo al centro -->
+    <div class="dressup-row">
+      <div class="rack rack-side" id="rackLeft"></div>
+
+      <div class="stage-col">
+        <div class="stage" id="stage">
+          <div class="stage-tag">EDICIÓN 016<br><b>ARMARIO</b></div>
+          <img class="modelo-base" id="modeloBase" src="assets/modelo/base.png" alt="Modelo" draggable="false">
+          <!-- capa de pelo, va SIEMPRE encima de todo, alineada pixel a pixel con la modelo -->
+          <img class="pelo-capa" src="assets/modelo/pelo-sticker.png" alt="" draggable="false">
+          <!-- acá van cayendo las prendas que se sueltan (JS las agrega) -->
+        </div>
+        <div class="stage-footnote">Arrastrá una prenda del perchero y soltala sobre ella. Podés moverlas cuantas veces quieras.</div>
       </div>
 
-      <div class="story-card">
+      <div class="rack rack-side" id="rackRight"></div>
+    </div>
+
+    <!-- bitácora + objeto especial, como dos recuadros al lado -->
+    <div class="info-row">
+      <div class="story-card square-card">
         <span class="eyebrow">Bitácora</span>
         <div id="bitacora"></div>
       </div>
 
-      <div class="special-card">
+      <div class="special-card square-card">
         <div class="eyebrow">🔒 Objeto especial</div>
         <div class="special-title" id="specialTitle">Objeto secreto</div>
         <div class="special-req" id="specialReq">Requisito: vestila con un vestido completo</div>
@@ -567,12 +595,14 @@
     colocarPuntoSecreto();
   });
 
-  // ---- perchero ----
-  const rack = document.getElementById('rack');
+  // ---- perchero (repartido en dos columnas, a cada lado de la modelo) ----
+  const rackLeft = document.getElementById('rackLeft');
+  const rackRight = document.getElementById('rackRight');
 
   function pintarRack(){
-    rack.innerHTML = '';
-    prendas.forEach(p => {
+    rackLeft.innerHTML = '';
+    rackRight.innerHTML = '';
+    prendas.forEach((p, i) => {
       const desbloqueada = estado.desbloqueadas.has(p.id);
       const div = document.createElement('div');
       div.className = 'rack-item' + (desbloqueada ? '' : ' bloqueada');
@@ -584,7 +614,8 @@
       } else {
         div.innerHTML = '<span class="candado">🔒</span>';
       }
-      rack.appendChild(div);
+      // alternamos: pares a la izquierda, impares a la derecha
+      (i % 2 === 0 ? rackLeft : rackRight).appendChild(div);
     });
   }
 
