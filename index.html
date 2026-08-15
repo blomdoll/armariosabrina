@@ -889,6 +889,10 @@
   function iniciarFinal(){
     const finale = document.getElementById('finale');
     finale.classList.add('active');
+    // apagamos el armario del todo (no solo lo tapamos) para que nada de
+    // adentro — el pelo, una prenda con un z-index alto, lo que sea —
+    // se pueda llegar a colar por encima de la carta
+    document.getElementById('wardrobe').classList.remove('active');
     lanzarConfeti();
 
     const pasos = [
@@ -941,6 +945,7 @@
   document.getElementById('finaleStep4').addEventListener('click', cerrarFinal);
   function cerrarFinal(){
     document.getElementById('finale').classList.remove('active');
+    document.getElementById('wardrobe').classList.add('active'); // volvemos a prender el armario de atrás
   }
 
 })();
