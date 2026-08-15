@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>THE COLLECTION™ — Edición especial</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;0,700;0,900;1,500&family=Quicksand:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,500;1,600;1,700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --cream:#FBF1EA;
@@ -48,20 +48,20 @@
     box-shadow:0 30px 60px -30px rgba(122,85,57,0.35);
   }
   .intro-card::before{content:""; position:absolute; inset:10px; border:1px dashed var(--pink-mid); pointer-events:none;}
-  .eyebrow{font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.28em; color:var(--pink-deep); text-transform:uppercase;}
-  .logo-mark{font-family:'Bodoni Moda',serif; font-weight:900; font-size:clamp(34px,9vw,48px); line-height:1.05; margin:14px 0 6px;}
+  .eyebrow{font-family:'Quicksand',sans-serif; font-weight:600; font-size:11px; letter-spacing:0.28em; color:var(--pink-deep); text-transform:uppercase;}
+  .logo-mark{font-family:'Playfair Display',serif; font-weight:900; font-size:clamp(34px,9vw,48px); line-height:1.05; margin:14px 0 6px;}
   .logo-word{position:relative; display:inline-block;}
   .logo-mark sup{
     position:absolute; top:0.12em; right:-0.9em;
     font-size:0.3em; font-weight:400;
     line-height:1; white-space:nowrap;
   }
-  .intro-sub{font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.14em; color:var(--ink-soft); text-transform:uppercase; margin-bottom:22px;}
-  .intro-date{font-size:15px; color:var(--ink-soft); margin-bottom:6px; font-family:'Space Mono',monospace;}
-  .intro-line{font-family:'Bodoni Moda',serif; font-style:italic; font-size:17px; margin:18px 0 30px; line-height:1.5;}
+  .intro-sub{font-family:'Quicksand',sans-serif; font-weight:600; font-size:12px; letter-spacing:0.14em; color:var(--ink-soft); text-transform:uppercase; margin-bottom:22px;}
+  .intro-date{font-size:15px; color:var(--ink-soft); margin-bottom:6px; font-family:'Quicksand',sans-serif; font-weight:600;}
+  .intro-line{font-family:'Playfair Display',serif; font-style:italic; font-size:17px; margin:18px 0 30px; line-height:1.5;}
   #enterBtn{
     background:var(--ink); color:var(--paper); border:none; padding:14px 40px; font-size:13px;
-    letter-spacing:0.24em; text-transform:uppercase; font-family:'Space Mono',monospace;
+    letter-spacing:0.24em; text-transform:uppercase; font-family:'Quicksand',sans-serif; font-weight:600;
     border-radius:2px; transition:transform .25s ease, background .25s ease;
   }
   #enterBtn:hover{background:var(--pink-deep); transform:translateY(-2px);}
@@ -75,11 +75,11 @@
     border-bottom:1px solid var(--mocha-pale); padding:12px 18px;
     display:flex; align-items:center; justify-content:space-between; gap:10px;
   }
-  .topbar-title{font-family:'Bodoni Moda',serif; font-weight:700; font-size:18px;}
+  .topbar-title{font-family:'Playfair Display',serif; font-weight:700; font-size:18px;}
   .topbar-title sup{font-size:0.5em;}
   .topbar-right{display:flex; align-items:center; gap:10px;}
   .badge{
-    font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:0.1em; color:var(--ink-soft);
+    font-family:'Quicksand',sans-serif; font-weight:600; font-size:10.5px; letter-spacing:0.1em; color:var(--ink-soft);
     background:var(--paper); border:1px solid var(--mocha-pale); border-radius:20px; padding:5px 10px; white-space:nowrap;
   }
   .icon-btn{
@@ -110,7 +110,7 @@
     isolation:isolate; /* encierra los z-index de adentro (el pelo, las prendas) para que no se escapen y compitan con otras pantallas como el finale */
   }
   .stage-tag{
-    position:absolute; top:14px; left:14px; font-family:'Space Mono',monospace; font-size:10px;
+    position:absolute; top:14px; left:14px; font-family:'Quicksand',sans-serif; font-weight:600; font-size:10px;
     letter-spacing:0.14em; color:var(--ink-soft); z-index:6; pointer-events:none;
   }
   .stage-tag b{display:block; color:var(--pink-deep); font-size:13px;}
@@ -176,7 +176,7 @@
   .ctrl-btn{
     width:24px; height:24px; border-radius:50%;
     background:var(--paper); color:var(--ink);
-    border:none; font-size:12px; font-family:'Space Mono',monospace;
+    border:none; font-size:12px; font-family:'Quicksand',sans-serif; font-weight:600;
     display:flex; align-items:center; justify-content:center; line-height:1;
     padding:0;
   }
@@ -184,7 +184,7 @@
 
   .stage-footnote{
     text-align:center; padding:10px 12px 14px;
-    font-family:'Space Mono',monospace; font-size:10px; color:var(--ink-soft); letter-spacing:0.05em;
+    font-family:'Quicksand',sans-serif; font-weight:600; font-size:10px; color:var(--ink-soft); letter-spacing:0.05em;
   }
 
   /* ===== el perchero / rack de prendas para arrastrar (dos columnas a los costados) ===== */
@@ -197,10 +197,10 @@
   .square-card{width:100%;}
 
   .rack-titulo{
-    font-family:'Bodoni Moda',serif; font-weight:700; font-size:16px; margin:0 0 2px;
+    font-family:'Playfair Display',serif; font-weight:700; font-size:16px; margin:0 0 2px;
   }
   .rack-sub{
-    font-family:'Space Mono',monospace; font-size:10px; color:var(--ink-soft); letter-spacing:0.05em; margin-bottom:8px;
+    font-family:'Quicksand',sans-serif; font-weight:600; font-size:10px; color:var(--ink-soft); letter-spacing:0.05em; margin-bottom:8px;
   }
 
   .rack{
@@ -235,7 +235,7 @@
   .rack-item.nueva::after{
     content:"nueva";
     position:absolute; bottom:3px; left:0; right:0; text-align:center;
-    font-family:'Space Mono',monospace; font-size:7.5px; letter-spacing:0.05em;
+    font-family:'Quicksand',sans-serif; font-weight:600; font-size:7.5px; letter-spacing:0.05em;
     background:var(--pink-deep); color:var(--paper); padding:1px 0;
   }
 
@@ -258,13 +258,13 @@
   }
   .capitulo:first-of-type{border-top:none; padding-top:0;}
   .capitulo-titulo{
-    font-family:'Bodoni Moda',serif; font-weight:700; font-size:15px; margin-bottom:4px;
+    font-family:'Playfair Display',serif; font-weight:700; font-size:15px; margin-bottom:4px;
   }
   .capitulo-texto{
-    font-family:'Bodoni Moda',serif; font-style:italic; font-size:14px; line-height:1.55; color:var(--ink-soft); margin:0;
+    font-family:'Playfair Display',serif; font-style:italic; font-size:14px; line-height:1.55; color:var(--ink-soft); margin:0;
   }
   .capitulo-pendiente{
-    font-family:'Space Mono',monospace; font-size:10.5px; color:var(--ink-soft); opacity:0.6; letter-spacing:0.04em;
+    font-family:'Quicksand',sans-serif; font-weight:600; font-size:10.5px; color:var(--ink-soft); opacity:0.6; letter-spacing:0.04em;
   }
 
   .special-card{
@@ -272,14 +272,14 @@
     border-radius:4px; padding:20px 18px; text-align:center; position:relative; overflow:hidden;
   }
   .special-card .eyebrow{color:var(--pink-pale);}
-  .special-title{font-family:'Bodoni Moda',serif; font-size:20px; margin:8px 0 4px;}
+  .special-title{font-family:'Playfair Display',serif; font-size:20px; margin:8px 0 4px;}
   .special-req{
-    font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:0.08em; color:var(--pink-pale);
+    font-family:'Quicksand',sans-serif; font-weight:600; font-size:10.5px; letter-spacing:0.08em; color:var(--pink-pale);
     opacity:0.85; margin-bottom:14px;
   }
   .special-btn{
     background:var(--paper); color:var(--mocha-deep); border:none; padding:11px 26px; border-radius:20px;
-    font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase;
+    font-family:'Quicksand',sans-serif; font-weight:600; font-size:11px; letter-spacing:0.14em; text-transform:uppercase;
   }
   .special-btn[disabled]{opacity:0.4; cursor:not-allowed;}
   .special-btn.ready{background:var(--pink-mid); color:var(--paper); animation:pulse 1.8s ease-in-out infinite;}
@@ -293,7 +293,7 @@
   .easter-dot:hover{opacity:1; transform:scale(1.4);}
   .toast{
     position:fixed; left:50%; bottom:26px; transform:translateX(-50%) translateY(20px);
-    background:var(--ink); color:var(--paper); font-family:'Space Mono',monospace; font-size:11.5px;
+    background:var(--ink); color:var(--paper); font-family:'Quicksand',sans-serif; font-weight:600; font-size:11.5px;
     letter-spacing:0.06em; padding:12px 18px; border-radius:24px; opacity:0; pointer-events:none;
     transition:opacity .3s ease, transform .3s ease; z-index:60; max-width:86vw; text-align:center;
   }
@@ -309,16 +309,16 @@
   .finale-step.show{display:block;}
   @keyframes fadeUp{from{opacity:0; transform:translateY(14px);} to{opacity:1; transform:translateY(0);}}
   .finale-eyebrow{
-    font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.3em; color:var(--pink-mid);
+    font-family:'Quicksand',sans-serif; font-weight:600; font-size:11px; letter-spacing:0.3em; color:var(--pink-mid);
     text-transform:uppercase; margin-bottom:14px;
   }
-  .finale-title{font-family:'Bodoni Moda',serif; font-weight:900; font-size:clamp(30px,9vw,56px); line-height:1.1;}
+  .finale-title{font-family:'Playfair Display',serif; font-weight:900; font-size:clamp(30px,9vw,56px); line-height:1.1;}
   .finale-sub{
-    font-family:'Bodoni Moda',serif; font-style:italic; font-size:clamp(16px,4.6vw,22px);
+    font-family:'Playfair Display',serif; font-style:italic; font-size:clamp(16px,4.6vw,22px);
     color:var(--pink-pale); margin-top:16px; max-width:520px;
   }
   .finale-tap{
-    margin-top:44px; font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:0.16em;
+    margin-top:44px; font-family:'Quicksand',sans-serif; font-weight:600; font-size:10.5px; letter-spacing:0.16em;
     color:var(--mocha-pale); text-transform:uppercase; opacity:0.7;
   }
   .confetti-dot{position:absolute; border-radius:50%; opacity:0;}
@@ -329,11 +329,11 @@
     overflow-y:auto; margin:0 auto; padding:34px 28px; border-radius:2px;
     box-shadow:0 40px 80px -30px rgba(0,0,0,0.5);
   }
-  .letter-eyebrow{font-family:'Bodoni Moda',serif; font-style:italic; font-weight:700; font-size:19px; color:var(--pink-deep); margin-bottom:16px;}
-  .finale-letter p{font-family:'Bodoni Moda',serif; font-size:15.5px; line-height:1.7; margin:0 0 16px;}
+  .letter-eyebrow{font-family:'Playfair Display',serif; font-style:italic; font-weight:700; font-size:19px; color:var(--pink-deep); margin-bottom:16px;}
+  .finale-letter p{font-family:'Playfair Display',serif; font-size:15.5px; line-height:1.7; margin:0 0 16px;}
   .letter-cierre{font-style:italic;}
   .letter-firma{text-align:right; font-weight:700; color:var(--pink-deep);}
-  .letter-seguir{display:block; margin:18px auto 0; max-width:220px; background:var(--pink-mid); color:var(--paper); border:none; padding:12px 26px; border-radius:20px; font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase;}
+  .letter-seguir{display:block; margin:18px auto 0; max-width:220px; background:var(--pink-mid); color:var(--paper); border:none; padding:12px 26px; border-radius:20px; font-family:'Quicksand',sans-serif; font-weight:600; font-size:11px; letter-spacing:0.1em; text-transform:uppercase;}
   #closeFinale{
     position:absolute; top:18px; right:18px; background:transparent; border:1px solid var(--mocha-pale);
     color:var(--paper); border-radius:50%; width:34px; height:34px; font-size:15px;
@@ -696,10 +696,31 @@
     });
 
     div.querySelectorAll('.ctrl-btn').forEach(btn => {
-      btn.addEventListener('click', function(e){
+      let intervalo = null;
+      let espera = null;
+
+      function detener(){
+        clearTimeout(espera);
+        clearInterval(intervalo);
+        espera = null;
+        intervalo = null;
+      }
+
+      btn.addEventListener('pointerdown', function(e){
         e.stopPropagation();
-        ajustarSticker(div, btn.dataset.accion);
+        ajustarSticker(div, btn.dataset.accion); // primer ajuste, al toque
+        // si lo mantiene apretado, después de un instante empieza a repetirlo solo,
+        // así se puede afinar de a poquito o mantenerlo para un cambio más grande
+        espera = setTimeout(function(){
+          intervalo = setInterval(function(){
+            ajustarSticker(div, btn.dataset.accion);
+          }, 70);
+        }, 380);
       });
+      btn.addEventListener('pointerup', detener);
+      btn.addEventListener('pointerleave', detener);
+      btn.addEventListener('pointercancel', detener);
+      btn.addEventListener('click', function(e){ e.stopPropagation(); }); // evita el doble ajuste del click nativo
     });
 
     permitirReubicar(div);
@@ -719,8 +740,8 @@
 
     if (accion === 'agrandar') escala = Math.min(2.4, escala + 0.12);
     if (accion === 'achicar') escala = Math.max(0.4, escala - 0.12);
-    if (accion === 'girar-der') rot += 15;
-    if (accion === 'girar-izq') rot -= 15;
+    if (accion === 'girar-der') rot += 2;
+    if (accion === 'girar-izq') rot -= 2;
 
     div.dataset.escala = escala.toFixed(2);
     div.dataset.rot = rot.toFixed(1);
