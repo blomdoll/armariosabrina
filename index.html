@@ -87,7 +87,60 @@
     display:flex; flex-direction:column; max-width:1100px; margin:0 auto; padding:18px 16px 60px; gap:18px;
   }
   @media(min-width:900px){
-    .wardrobe-layout{flex-direction:row; align-items:flex-start; padding-top:28px;}
+    /* en escritorio hay espacio de sobra: en vez de que la página crezca
+       y haya que bajar, hacemos que todo el armario entre en la pantalla
+       de una — la modelo se achica, el perchero pasa a una fila angosta,
+       y solo la bitácora scrollea internamente si el texto no entra */
+    #wardrobe.active{
+      height:100vh;
+      display:flex;
+      flex-direction:column;
+      overflow:hidden;
+    }
+    .topbar{flex:0 0 auto;}
+    .wardrobe-layout{
+      flex-direction:row;
+      align-items:stretch;
+      flex:1 1 auto;
+      min-height:0;
+      padding-top:16px;
+      padding-bottom:16px;
+      overflow:hidden;
+    }
+    .stage-col{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      height:100%;
+    }
+    .stage{
+      width:auto;
+      height:min(60vh, 560px);
+      aspect-ratio:640/800;
+      flex:0 0 auto;
+    }
+    .modelo-base{
+      width:100%;
+      height:100%;
+      aspect-ratio:unset;
+      object-fit:cover;
+    }
+    .stage-footnote{flex:0 0 auto; margin-top:4px;}
+    .panel-col{height:100%; overflow:hidden;}
+    .rack{
+      flex:0 0 auto;
+      display:flex;
+      flex-wrap:nowrap;
+      overflow-x:auto;
+    }
+    .rack-item{flex:0 0 78px; width:78px;}
+    .story-card{
+      flex:1 1 auto;
+      min-height:0;
+      overflow-y:auto;
+    }
+    .special-card{flex:0 0 auto;}
   }
 
   /* ===== el escenario / lienzo del armario ===== */
