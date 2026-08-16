@@ -124,9 +124,7 @@
     -webkit-user-drag:none;
     pointer-events:none; /* la modelo no se arrastra, solo sirve de fondo */
   }
-  /* el pelo comparte el mismo lienzo que la modelo (mismas medidas originales),
-     por eso calza pixel a pixel puesto en inset:0 — no es una prenda, es parte
-     fija de ella, siempre por encima de la ropa que se le ponga */
+
   .pelo-capa{
     position:absolute; inset:0;
     width:100%; height:100%;
@@ -339,12 +337,6 @@
     color:var(--paper); border-radius:50%; width:34px; height:34px; font-size:15px;
   }
 
-  /* =====================================================================
-     ESCRITORIO — va al FINAL a propósito. En CSS, con la misma
-     especificidad, gana la regla que está más abajo en el archivo, así
-     que si esto va antes que las reglas base, esas reglas base lo pisan
-     y termina sin efecto. Por eso vive acá, después de todo lo demás.
-     ===================================================================== */
   @media(min-width:900px){
     #wardrobe.active{
       height:100vh;
@@ -354,8 +346,6 @@
     }
     .topbar{flex:0 0 auto;}
 
-    /* antes esto tenía un tope de 1100px y dejaba franjas enormes vacías
-       a los costados — ahora usa casi todo el ancho de la pantalla */
     .wardrobe-layout{
       flex-direction:column;
       align-items:center;
@@ -487,7 +477,7 @@
       <div class="special-card square-card">
         <div class="eyebrow">🔒 Objeto especial</div>
         <div class="special-title" id="specialTitle">Objeto secreto</div>
-        <div class="special-req" id="specialReq">Requisito: vestila con un vestido completo</div>
+        <div class="special-req" id="specialReq">Requisito: Viste un vestido completo</div>
         <button class="special-btn" id="specialBtn" disabled>Bloqueado</button>
       </div>
     </div>
@@ -530,10 +520,6 @@
 <script>
 (function(){
 
-  // ---------------------------------------------------------------
-  // TODAS LAS PRENDAS. "src" apunta a los pngs reales que subiste.
-  // "grupo" es solo para el orden de desbloqueo, no afecta el arrastre.
-  // ---------------------------------------------------------------
   const prendas = [
     { id:'p03',   nombre:'Falda floreada',           src:'assets/ropa/prenda-03.png',      grupo:0 },
     { id:'p14',   nombre:'Top rosa anudado',          src:'assets/ropa/prenda-14.png',      grupo:0 },
@@ -595,7 +581,7 @@
     colocarPuntoSecreto();
   });
 
-  // ---- perchero (repartido en dos columnas, a cada lado de la modelo) ----
+  // ---- perchero (repartido en dos columnas, a cada lado) ----
   const rackLeft = document.getElementById('rackLeft');
   const rackRight = document.getElementById('rackRight');
 
@@ -619,12 +605,7 @@
     });
   }
 
-  // ---------------------------------------------------------------
-  // ARRASTRAR Y SOLTAR — con Pointer Events, funciona igual con mouse,
-  // dedo o lápiz. la idea: arrancás desde el perchero, se genera un
-  // clon que sigue al dedo, y al soltar sobre el escenario se crea
-  // la prenda "puesta" en esa posición.
-  // ---------------------------------------------------------------
+  // ARRASTRAR Y SOLTAR 
   function iniciarArrastreDesdeRack(elRack, prenda){
     elRack.addEventListener('pointerdown', function(ev){
       ev.preventDefault();
@@ -708,9 +689,7 @@
 
       btn.addEventListener('pointerdown', function(e){
         e.stopPropagation();
-        ajustarSticker(div, btn.dataset.accion); // primer ajuste, al toque
-        // si lo mantiene apretado, después de un instante empieza a repetirlo solo,
-        // así se puede afinar de a poquito o mantenerlo para un cambio más grande
+        ajustarSticker(div, btn.dataset.accion);
         espera = setTimeout(function(){
           intervalo = setInterval(function(){
             ajustarSticker(div, btn.dataset.accion);
@@ -763,7 +742,6 @@
 
   // permite volver a arrastrar una prenda que ya está puesta, para reacomodarla.
   // si el dedo casi no se movió, lo tomamos como un toque (abre/cierra los controles)
-  // en vez de como un arrastre
   function permitirReubicar(div){
     div.addEventListener('pointerdown', function(ev){
       if (ev.target.closest('.quitar-btn') || ev.target.closest('.controles-sticker')) return;
@@ -802,7 +780,7 @@
     });
   }
 
-  // tocar el fondo del escenario (la modelo, o el espacio vacío) cierra los controles abiertos
+  // tocar el fondo del escenario
   document.getElementById('stage').addEventListener('pointerdown', function(ev){
     if (ev.target === this || ev.target.id === 'modeloBase') deseleccionarTodo();
   });
@@ -906,8 +884,7 @@
     toastTimer = setTimeout(() => t.classList.remove('show'), 2800);
   }
 
-  // ---- música de fondo vía YouTube (streaming licenciado, no alojamos el archivo) ----
-  // "Lover" — Taylor Swift, video oficial
+  // "Lover" — Taylor Swift
   const YT_VIDEO_ID = '-BjZmE2gtdo';
 
   let ytPlayer = null;
