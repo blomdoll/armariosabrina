@@ -456,7 +456,7 @@
 
     <div class="rack-header">
       <div class="rack-titulo">El perchero</div>
-      <div class="rack-sub">Las bloqueadas se abren jugando con las demás.</div>
+      <div class="rack-sub">Las bloqueadas se abren cuando usas las prendas disponibles.</div>
     </div>
 
     <!-- probador: perchero a los dos costados, la modelo al centro -->
@@ -471,7 +471,7 @@
           <img class="pelo-capa" src="assets/modelo/pelo-sticker.png" alt="" draggable="false">
           <!-- acá van cayendo las prendas que se sueltan (JS las agrega) -->
         </div>
-        <div class="stage-footnote">Arrastrá una prenda del perchero y soltala sobre ella. Podés moverlas cuantas veces quieras.</div>
+        <div class="stage-footnote">Arrastrá una prenda del perchero y soltála sobre ella. Podés moverlas cuantas veces quieras.</div>
       </div>
 
       <div class="rack rack-side" id="rackRight"></div>
@@ -507,7 +507,7 @@
     <div class="finale-title">COMPLETA</div>
   </div>
   <div class="finale-step" id="finaleStep2">
-    <div class="finale-title">30 DÍAS.</div>
+    <div class="finale-title">UN MES JUNTO A VOS...</div>
   </div>
   <div class="finale-step" id="finaleStep3">
     <div class="finale-letter">
@@ -563,13 +563,13 @@
   ];
 
   // los 5 capítulos de la historia real. el capítulo 0 ya arranca visible,
-  // los demás se van revelando junto con cada grupo de prendas nuevas
+  // los demás se van revelando junto con cada grupo de prendas nuevas 
   const capitulos = [
-    { titulo:'Casi extraños', texto:'Éramos conocidos que hablaban poco. Días enteros sin cruzar palabra, y después volvíamos a hablar como si nada.' },
-    { titulo:'La madrugada', texto:'Me dijiste que era lindo, que querías besarme. Esa madrugada nos besamos por primera vez.' },
-    { titulo:'Reglas que no duraron', texto:'Dijimos que iba a ser casual. Amigos con derecho, sin enamorarse. Ninguno de los dos cumplió esa parte.' },
-    { titulo:'Nuestro secreto', texto:'Nos enamoramos de verdad, pero por un tiempo fue solo nuestro. Un secreto que valía la pena guardar.' },
-    { titulo:'Ya público, ya nosotros', texto:'Después lo contamos al mundo. Y desde entonces no hemos dejado de ser felices.' },
+    { titulo:'Casi extraños', texto:'Éramos conocidos que hablaban poquito. Días enteros sin cruzar palabra, y después volvíamos a hablar como si nada.' },
+    { titulo:'La madrugada', texto:'Me dijiste que era lindo, que querías besarme. Esa madrugada nos besamos por primera vez, con sabor a ron.' },
+    { titulo:'Reglas que no duraron', texto:'Sería algo casual. Amigos con derecho, sin enamorarse. Ninguno de los dos cumplió esa parte...' },
+    { titulo:'Nuestro secreto', texto:'Nos enamoramos de verdad, pero por un tiempo fue solo de nosotros.' },
+    { titulo:'Gritarlo al mundo', texto:'Después lo contamos al mundo. Y desde entonces hemos logrado hacernos felices.' },
   ];
 
   // umbral de prendas distintas probadas para pasar de un capítulo al siguiente
@@ -891,7 +891,7 @@
     dot.addEventListener('click', function(){
       if (estado.easterEncontrado) return;
       estado.easterEncontrado = true;
-      mostrarToast('un pequeño secreto: cada punto de esta página está puesto a propósito.');
+      mostrarToast('un pequeño secreto: te amo tanto.');
       dot.style.opacity = '0';
     });
   }
